@@ -1,14 +1,14 @@
 package com.geolocation.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.geolocation.models.classes.Location;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class LocationController {
     @GetMapping("/location/")
-    public String return_location(){
+    public String new_location(@RequestParam("latitude") double latitude, @RequestParam("longitude") double longitude){
+        Location location = new Location(latitude,longitude);
+        location.setId(1);
         return "welcome_to_location";
     }
 }
