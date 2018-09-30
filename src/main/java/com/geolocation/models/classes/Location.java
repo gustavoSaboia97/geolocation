@@ -6,7 +6,9 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     @Getter @Setter
     private int id;
     @Getter @Setter
@@ -15,6 +17,9 @@ public class Location {
     private double longitude;
     @Getter
     private String location_time;
+
+    public Location(){
+    }
 
     public Location(double latitude, double longitude){
         DateTime dateTime = DateTime.now();
