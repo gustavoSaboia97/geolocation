@@ -10,7 +10,6 @@ public class LocationController {
     @GetMapping("/location/")
     public String new_location(@RequestParam("latitude") double latitude, @RequestParam("longitude") double longitude){
         Location location = new Location(latitude,longitude);
-        location.setId(1);
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
@@ -18,6 +17,6 @@ public class LocationController {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        return "welcome_to_location";
+        return "err";
     }
 }
